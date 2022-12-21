@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="screen">
+    <div class="screen__content">
+      <form [formGroup]="loginForm" (ngSubmit)="submit()" class="login">
+        <div class="login__field">
+          <i class="login__icon fas fa-user"></i>
+          <input
+            type="email"
+            formControlName="email"
+            class="login__input"
+            placeholder="User name / Email"
+          />
+        </div>
+        <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
+          <div *fc.email.errors.required>Should not be empty</div>
+          <div *fc.email.errors.email>Email or password is incorrect</div>
+        </div>
+        <div class="login__field">
+          <i class="login__icon fas fa-lock"></i>
+          <input
+            type="password"
+            formControlName="password"
+            class="login__input"
+            placeholder="Password"
+          />
+        </div>
+        <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
+          <div *fc.password.errors.required>Should not be empty</div>
+        </div>
+        <button class="button login__submit">
+          <span type="submit" class="button__text">Log In Now</span>
+          <i class="button__icon fas fa-chevron-right"></i>
+        </button>
+      </form>
+      <button class="register">
+        <span routerLink="/register"  >Sign Up</span>
+        <i class="button__icon fas fa-chevron-right"></i>
+      </button>
+    </div>
+    <div class="screen__background">
+      <span class="screen__background__shape screen__background__shape4"></span>
+      <span class="screen__background__shape screen__background__shape3"></span>
+      <span class="screen__background__shape screen__background__shape2"></span>
+      <span class="screen__background__shape screen__background__shape1"></span>
+    </div>
+  </div>
+</div>
+
